@@ -1,13 +1,6 @@
 import { Router } from 'express';
+import { controllerGetEmployes } from '../controllers/employes.controller.js';
 
 export const routerEmployes = Router();
 
-routerEmployes.get('/', (req, res) => {
-  try {
-    res.json({
-      employes: [],
-    });
-  } catch (error) {
-    res.status(500).json({ error: error });
-  }
-});
+routerEmployes.get('/', controllerGetEmployes);
