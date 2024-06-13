@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { routerEmployes } from './routes/employes.route.js';
+import { PORT } from './config/config.js';
 
 export const app = express();
 
@@ -14,6 +15,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/employes', routerEmployes);
 
-app.listen(3000, () => {
-  console.log(`Listening on port: ${3000}`);
+app.listen(PORT, () => {
+  console.log(`Listening on port: ${PORT}`);
 });
