@@ -1,4 +1,4 @@
-export class EmployesModel {
+export class CompaniesModel {
   constructor(SQLClient, table) {
     if (!SQLClient) {
       throw new Error('SQLClient is required');
@@ -13,9 +13,7 @@ export class EmployesModel {
 
   async getAll() {
     try {
-      const query = await this.client(this.table)
-        .select('employes.*', 'companies.company')
-        .join('companies', 'employes.id_company', 'companies.id_company');
+      const query = await this.client(this.table).select('*');
       return query;
     } catch (error) {
       throw new Error(`Can not get all: ${error}`);
