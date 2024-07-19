@@ -33,4 +33,16 @@ export class EmployesModel {
       throw new Error(`Can not get employe with id ${id} : ${error}`);
     }
   }
+
+  async updateById(updatedFields) {
+    const id = updatedFields.id_employe;
+    try {
+      await this.client(this.table).where('id_employe', id).update(updatedFields);
+
+      const updatedEmploye = await this.getById(id);
+      return updatedEmploye;
+    } catch (error) {
+      throw new Error(`Can not get employe with id ${id} : ${error}`);
+    }
+  }
 }
