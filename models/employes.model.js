@@ -21,4 +21,16 @@ export class EmployesModel {
       throw new Error(`Can not get all: ${error}`);
     }
   }
+
+  async getById(id) {
+    try {
+      const query = await this.client(this.table)
+        .select('employes.*', 'companies.company')
+        .join('companies', 'employes.id_company', 'companies.id_company')
+        .where('id_employe', id);
+      return query;
+    } catch (error) {
+      throw new Error(`Can not get employe with id ${id} : ${error}`);
+    }
+  }
 }
