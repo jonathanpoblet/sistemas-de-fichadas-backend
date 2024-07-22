@@ -19,4 +19,18 @@ export class ClocksModel {
       throw new Error(`Can not get all: ${error}`);
     }
   }
+
+  async addClock({ id_employe, lat, lon, date }) {
+    try {
+      const query = await this.client(this.table).insert({
+        id_employe,
+        lat,
+        lon,
+        date,
+      });
+      return query;
+    } catch (error) {
+      throw new Error(`Can not get all: ${error}`);
+    }
+  }
 }
