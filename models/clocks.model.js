@@ -25,7 +25,7 @@ export class ClocksModel {
         )
         .join('employes', 'employes.id_employe', 'clocks.id_employe')
         .join('offices', 'offices.id_office', 'clocks.id_office')
-        .join('companies', 'clocks.id_office', 'companies.id_company')
+        .join('companies', 'companies.id_company', 'offices.id_company')
         .orderByRaw("CONVERT_TZ(clocks.date, '+00:00', '-00:00') DESC");
       return query;
     } catch (error) {
