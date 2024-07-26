@@ -3,6 +3,7 @@ export const employeFields = [
   'dni',
   'file',
   'name',
+  'email',
   'lastname',
   'position',
   'sector',

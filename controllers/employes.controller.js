@@ -36,12 +36,13 @@ export async function controllerUpdateEmployeById(req, res, next) {
     }
 
     //Search Employe
-    const id = req.body.id_employe;
+    const id = req.params.id;
     const employe = await employesService.getById(id);
 
     //Update Employe
     if (employe.length !== 0) {
       const updatedFields = req.body;
+      updatedFields.id_employe = id;
       const updatedEmploye = await employesService.updateById(updatedFields);
       res.json(updatedEmploye[0]);
     } else res.status(404).json({ message: 'Employee not found' });

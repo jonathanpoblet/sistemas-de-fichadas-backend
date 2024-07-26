@@ -9,4 +9,4 @@ export const routerEmployes = Router();
 
 routerEmployes.get('/', controllerGetEmployes);
 routerEmployes.get('/:id', controllerGetEmployeById);
-routerEmployes.put('/', controllerUpdateEmployeById);
+routerEmployes.put('/:id', controllerUpdateEmployeById);
